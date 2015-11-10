@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block conteudo %}
+
+<section class="content-header">
+	<h1 class="page-header">Novo Produto</h1>
+	<ol class="breadcrumb">
+		<li><a href="{% url 'core:home' %}"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li><a href="{% url 'produtos:lista_produtos' %}"><i class="fa fa-dashboard"></i> produtos</a></li>
+		<li><a href="#"><i class="fa fa-dashboard"></i> novo produto</a></li>
+	</ol>
+</section>
+<!-- Main content -->
+
+<section class="content">
+	<div class="box box-primary">
+		<div class="box-header with-border">
+			<h3 class="box-title">Digite os dados do novo produto</h3>
+		</div>
+		<div class="box-body">
+			<form role="form" action="" method="POST">
+				{% csrf_token %}
+				<div class="box-body">
+					
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-4">
+								<label>Categoria:</label>
+								{{ form_produto.categoria|add_class:"form-control" }}
+							</div>
+							<div class="col-sm-1">
+								<label>&nbsp;</label>
+								<a href="{% url 'produtos:nova_categoria' %}"
+								data-toggle="modal" data-target="#myModal"
+								class="btn btn-md btn-primary form-control"> <i
+								class="glyphicon glyphicon-plus"></i> 
+							</a>
+						</div>
+					</div>
+				</div>	
+
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-12">
+							<label>Descrição Simples:</label>
+							{{ form_produto.descricao_simples|add_class:"form-control" }}
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-12">
+							<label>Descrição Completa:</label>
+							{{ form_produto.descricao_completa|add_class:"form-control" }}
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-12">
+							<label>Resumo:</label>
+							{{ form_produto.resumo|add_class:"form-control" }}
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-4">
+							<label>Valor compra R$:</label>
+							{{ form_produto.valor_compra|add_class:"form-control" }}
+						</div>
+						<div class="col-sm-4">
+							<label>Valor Venda R$</label>
+							{{ form_produto.valor_venda|add_class:"form-control" }}
+						</div>
+						<div class="col-sm-4">
+							<label>Estoque:</label>
+							{{ form_produto.estoque|add_class:"form-control" }}
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-4">
+							<label>Está no promoção?:</label>
+							{{ form_produto.is_promocao|add_class:"form-control" }}
+						</div>
+						<div class="col-sm-4">
+							<label>Valor promoção R$</label>
+							{{ form_produto.valor_promocao|add_class:"form-control" }}
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="box-footer">
+				<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Salvar</button>
+			</div>
+		</form>
+	</div><!-- /.box-body -->
+
+</div><!-- /.box -->
+
+</section><!-- /.content -->
+<!-- Default box -->
+
+
+{% endblock conteudo %}
+

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<section class="content-header">
+	<h1 class="page-header">Clientes</h1>
+	<ol class="breadcrumb">
+		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li><span></i> Clientes</span></li>
+	</ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+	<div class="box box-primary">
+		<div class="box-header with-border">
+			<div class="row">
+				<div class="col-sm-6">
+					<a class="btn btn-primary" href="{% url 'clientes:novo_cliente' %}"><i class="glyphicon glyphicon-plus"></i> Cadastrar</a>
+				</div>
+				<!-- search form -->
+				<div class="col-sm-6">
+					<form action="#" method="get">
+						<div class="input-group">
+							<input type="text" name="q" class="form-control" placeholder="Digite o nome do cliente">
+							<span class="input-group-btn">
+								<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+							</span>
+						</div>
+					</form>
+					<!-- /.search form -->
+				</div>
+			</div>
+		</div>
+		<div class="box-body">
+			<div class="table-responsive">
+				<table class="table table-hover table-striped">
+					<thead>
+						<tr>
+							<th>Nome cliente</th>
+							<th>Cpf</th>
+							<th>Fone</th>
+							<th>Endereço</th>
+							<th>Ação</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for cliente in clientes%}
+
+						<tr>
+							<td>{{cliente.nome}}</td>
+							<td>{{cliente.cpf}}</td>
+							<td>{{cliente.fone}}</td>
+							<td>{{cliente.logradouro}}, {{cliente.numero}}, {{cliente.bairro.nome_bairro}}, {{cliente.bairro.cidade}} - {{cliente.bairro.uf}}</td>
+							<td><a href="{% url 'clientes:editar_cliente' cliente.id %}"><i class="glyphicon glyphicon-pencil"></i></a></td>
+						</tr>
+
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div><!-- /.box-body -->
+		<div class="box-footer">
+			<span>Total de registros: </span>{{clientes.count}}
+		</div><!-- /.box-footer-->
+	</div><!-- /.box -->
+
+</section><!-- /.content -->
+<!-- Default box -->
+{% endblock conteudo %}

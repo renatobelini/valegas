@@ -1,0 +1,180 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ValeGás | Principal</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.5 -->
+  <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <!-- Font Awesome 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  -->
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{% static "css/ionicons.min.css" %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static "css/AdminLTE.min.css" %}">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+    folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="{% static "css/skins/_all-skins.min.css" %}">
+    <link href="{% static "css/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="{% url 'core:home' %}" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>V</b>G</span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b>Vale</b>GÁS</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="{% static "img/user43.png" %}" class="user-image" alt="User Image">
+                  <span class="hidden-xs">Alexander Pierce</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- User image -->
+                  <li class="user-header">
+                    <img src="{% static "img/user43.png" %}" class="img-circle" alt="User Image">
+                    <p>
+                      Alexander Pierce - Web Developer
+                      <small>Member since Nov. 2012</small>
+                    </p>
+                  </li>
+                  
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-default btn-flat">Sair</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!-- Control Sidebar Toggle Button -->
+              
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <!-- =============================================== -->
+
+      <!-- Left side column. contains the sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="{% static "img/user43.png" %}" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+              <p>Alexander Pierce</p>
+              <a href="#"><i class="glyphicon glyphicon-ok-circle text-success"></i> Online</a>
+            </div>
+          </div>
+          
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header">MENU DE NAVEGAÇÃO</li>
+            <li class="treeview">
+              <a href="#">
+                <i class="glyphicon glyphicon-file"></i>
+                <span>Cadastros</span>
+                <!--
+                <span class="label label-primary pull-right">4</span>
+              -->
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{% url 'clientes:lista_clientes' %}"><i class="glyphicon glyphicon-th-list"></i> Clientes</a></li>
+
+              <li><a href="{% url 'produtos:lista_categorias' %}"><i class="glyphicon glyphicon-th-list"></i> Categorias</a></li>
+
+              <li><a href="{% url 'produtos:lista_produtos' %}"><i class="glyphicon glyphicon-th-list"></i> Produtos</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- =============================================== -->
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      {% block conteudo%}
+      
+      {% endblock conteudo%}
+
+    </div><!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+      <div class="pull-right hidden-xs">
+        <b>Version</b> 1.0.0
+      </div>
+      <strong>Copyright &copy; 2015 <a href="#">Grupo Carvalho</a>.</strong> Todos os direitos reservados.
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Large-->
+  <div class="modal fade" id="myModal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="control-sidebar-bg"></div>
+</div><!-- ./wrapper -->
+
+<!-- jQuery 2.1.4 -->
+<script src="{% static "js/jQuery-2.1.4.min.js" %}"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<!-- SlimScroll -->
+<script src="{% static "js/slimscroll.min.js" %}"></script>
+<!-- FastClick -->
+<script src="{% static "js/fastclick.min.js" %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static "js/app.min.js" %}"></script>
+    <!-- AdminLTE for demo purposes 
+    <script src="{% static "js/demo.js" %}"></script>-->
+  </body>
+  </html>
